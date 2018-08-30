@@ -1,47 +1,39 @@
 @import url("https://fonts.googleapis.com/css?family=Abel|Pacifico");
-
 body {
   padding: 50px;
   font-family: "Abel", sans-serif;
-  background-image: linear-gradient(to left, grey, white);
-}
+  background-image: linear-gradient(to left, grey, white); }
 
 .title {
   border: 5px solid lightseagreen;
   width: 40%;
-  margin-bottom: 20px;
-}
+  margin-bottom: 20px; }
 
 h2 {
   font-size: 3em;
   font-family: "Pacifico", cursive;
-  margin: 30px;
-}
+  margin: 30px; }
 
 img {
   border: 10px solid black;
   width: 50vh;
   height: 50vh;
-  margin: 10px;
-}
+  margin: 10px; }
 
 label {
   font-size: 2em;
-  margin-right: 10px;
-}
+  margin-right: 10px; }
 
 .container-input {
   display: flex;
   justify-content: space-around;
   justify-content: center;
-  margin: 35px 50px;
-}
+  margin: 35px 50px; }
 
 .file-search {
   margin-left: 20px;
   color: balck;
-  background-color: lightseagreen;
-}
+  background-color: lightseagreen; }
 
 .submit-button,
 .text-input {
@@ -49,24 +41,22 @@ label {
   color: black;
   border-radius: 10px;
   border: 2px solid black;
-  text-align: center;
-}
+  text-align: center; }
 
 #user-input {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-}
+  justify-content: space-between; }
 
 .image-title {
   border-radius: 4px;
   border: 2px solid black;
-
   color: black;
   text-align: center;
   font-size: 1em;
   background-color: lightgrey;
   width: 50vh;
   margin: 0 10px;
-  margin-bottom: 10px;
-}
+  margin-bottom: 10px; }
+
+/*# sourceMappingURL=style.css.map */

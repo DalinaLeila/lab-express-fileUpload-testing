@@ -1,2 +1,30 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<section id="user-input">
+  <div class="title">
+    <h2>Upload your photo.</h2>
+  </div>
+  <div class="container-input">
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <label for="name">Title:</label>
+      <input class="text-input" type="text" name="name" required="true" placeholder="Photo Title">
+      <input class="file-search" type="file" name="photo" required="true">
+      <input class="submit-button" type="submit" value="Save">
+    </form>
+  </div>
+</section>
+
+<section>
+
+  <div class="container">
+    <div class="row">
+      {{#each pictures}}
+      <div class="col-lg-4 container-picture">
+        <img src="{{this.path}}" alt="{{this.name}}" class="img-fluid" width="100px">
+        <div class="container-image-info">
+          <h3 class="image-title">{{this.name}}</h3>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+
+</section>
