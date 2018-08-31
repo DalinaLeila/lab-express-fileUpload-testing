@@ -41,5 +41,5 @@ server.on('error', error => {
 });
 
 server.listen(config.PORT, () => {
-  console.log(`Listening on http://localhost:${config.PORT}`);
+  console.log(` Listening on http://localhost:${config.PORT}`);
 });
