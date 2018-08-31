@@ -5,6 +5,7 @@ const express = require("express");
 const router = express.Router();
 const Picture = require("../models/picture");
 const fs = require("fs");
+const path = require("path");
 
 const { upload } = require("../utils/cloudinary"); //destructuring used
 
@@ -16,18 +17,23 @@ router.get("/", function(req, res, next) {
 });
 
 router.post("/upload", (req, res, next) => {
+  const filePath = path.join(
+    __dirname,
+    `../public/uploads/${req.files.photo.name}`
+  );
+
   // router.post("/upload", upload.single("photo"), function(req, res) {
-  req.files.photo.mv(`public/uploads/${req.files.photo.name}`, function(err) {
+  req.files.photo.mv(filePath, function(err) {
     //moving the uploaded file with the specific name to the specified directory
     if (err) return res.status(500).send(err);
 
-    upload(`public/uploads/${req.files.photo.name}`).then(result => {
+    upload(filePath).then(result => {
       Picture.findOneAndUpdate(
         { name: req.body.name },
         { name: req.body.name, path: result.secure_url },
         { new: true, upsert: true, runValidators: true } //upsert means that if the name is not found a new document is created
       ).then(pic => {
-        fs.unlinkSync(`public/uploads/${req.files.photo.name}`); //we do this to delete the files from the upload folder in order not to store them here in this project
+        fs.unlinkSync(filePath); //we do this to delete the files from the upload folder in order not to store them here in this project
         res.redirect("/");
       });
     });
