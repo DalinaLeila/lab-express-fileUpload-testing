@@ -10,10 +10,11 @@ const logger = require("morgan");
 const path = require("path");
 const fileupload = require("express-fileupload");
 
+const config = require("./config");
 mongoose.Promise = Promise;
 mongoose
   .connect(
-    "mongodb://localhost/lab-express-file-upload",
+    config.MONGODB_URI,
     { useMongoClient: true }
   )
   .then(() => {
